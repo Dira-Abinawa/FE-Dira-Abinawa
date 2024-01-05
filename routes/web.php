@@ -17,7 +17,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('user.welcome');
+    // Mengambil data dari API
+    $apiResponse = Http::get('http://127.0.0.1:3000/news/');
+
+    // Memeriksa apakah permintaan berhasil
+    if ($apiResponse->successful()) {
+        // Mendapatkan data dari response
+        $newsData = $apiResponse->json();
+
+        // Mengirim data ke view 'user.welcome'
+        return view('user.welcome', ['newsData' => $newsData]);
+    } else {
+        // Jika permintaan gagal, tindakan yang sesuai
+        return "Failed to fetch news data!";
+    }
 });
 
 
@@ -78,3 +91,6 @@ Route::resource('sekolahs', App\Http\Controllers\SekolahController::class);
 
 
 Route::resource('schools', App\Http\Controllers\SchoolsController::class);
+
+
+Route::resource('news', App\Http\Controllers\NewsController::class);

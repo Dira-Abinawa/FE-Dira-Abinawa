@@ -15,7 +15,7 @@ class SchoolsController extends AppBaseController
 {
     /** @var SchoolsRepository $schoolsRepository*/
     private $schoolsRepository;
-    
+
     /**
      * Display a listing of the Schools.
      *
@@ -26,10 +26,10 @@ class SchoolsController extends AppBaseController
     public function index(Request $request)
     {
         $apiUrl = "http://127.0.0.1:3000/school/";
-        
+
         $response = Http::get($apiUrl);
         if ($response->successful()) {
-            $schoolsData = $response->json(); 
+            $schoolsData = $response->json();
         } else {
             Flash::error('Failed to fetch data from the API.');
 
@@ -56,17 +56,16 @@ class SchoolsController extends AppBaseController
      *
      * @return Response
      */
-    public function store(CreateSchoolsRequest $request)
+    public function store(Request $request)
     {
         $input = $request->all();
-        $schools = $this->schoolsRepository->create($input);
         $apiResponse = Http::post('http://127.0.0.1:3000/school/', $input);
         if ($apiResponse->successful()) {
             Flash::success('Schools saved and data sent to the API successfully.');
         } else {
             Flash::error('Failed to send data to the API. Schools saved locally.');
         }
-    
+
         return redirect(route('schools.index'));
     }
     /**
@@ -87,7 +86,7 @@ class SchoolsController extends AppBaseController
         }
         return view('schools.show')->with('schools', $schools);
     }
-    
+
     /**
      * Show the form for editing the specified Schools.
      *
@@ -106,7 +105,7 @@ class SchoolsController extends AppBaseController
         }
         return view('schools.edit')->with('schools', $schools);
     }
-    
+
 
     /**
      * Update the specified Schools in storage.
@@ -133,7 +132,7 @@ class SchoolsController extends AppBaseController
         }
         return redirect(route('schools.index'));
     }
-    
+
     /**
      * Remove the specified Schools from storage.
      *
@@ -156,9 +155,9 @@ class SchoolsController extends AppBaseController
         } else {
             Flash::error('Failed to fetch school data from the API.');
         }
-        $this->schoolsRepository->delete($id);
+        // $this->schoolsRepository->destroy($id);
         Flash::success('Schools deleted successfully from the local database.');
         return redirect(route('schools.index'));
     }
-    
+
 }

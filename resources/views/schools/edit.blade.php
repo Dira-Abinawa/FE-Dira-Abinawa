@@ -18,7 +18,7 @@
                               <strong>Edit Schools</strong>
                           </div>
                           <div class="card-body">
-                              {!! Form::model($schools, ['route' => ['schools.update', $schools->id], 'method' => 'patch']) !!}
+                              {!! Form::model($schools, ['route' => ['schools.update', $schools['id']], 'method' => 'patch']) !!}
 
                               @include('schools.fields')
 

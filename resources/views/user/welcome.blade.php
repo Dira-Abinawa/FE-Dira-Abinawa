@@ -55,14 +55,14 @@
                 var schoolData = {
                     labels: ['SD', 'SMP', 'SMA'],
                     datasets: [{
-                        label: 'Jumlah Anggota per Jenjang Sekolah',
+                        label: 'Jumlah Sekolah per Golongan Sekolah',
                         backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)'],
                         borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)'],
                         borderWidth: 1,
                         data: [150, 200, 100]
                     }]
                 };
-        
+
                 // Data untuk chart jenis kelamin
                 var genderData = {
                     labels: ['Laki-laki', 'Perempuan'],
@@ -73,14 +73,14 @@
                         borderWidth: 1,
                     }]
                 };
-        
+
                 // Membuat bar chart sekolah
                 var ctxSchool = document.getElementById('schoolChart').getContext('2d');
                 var schoolChart = new Chart(ctxSchool, {
                     type: 'bar',
                     data: schoolData
                 });
-        
+
                 // Membuat pie chart jenis kelamin
                 var ctxGender = document.getElementById('genderChart').getContext('2d');
                 var genderChart = new Chart(ctxGender, {
@@ -100,58 +100,20 @@
             </div>
             <div class="section-content">
                 <div class="events-slider-area owl-carousel">
+                    @foreach ($newsData as $news)
                     <div class="events-card">
-                        <img src="assets/images/events/e1.jpg" alt="image">
+                        <img src="{{ asset('assets/images/file_image/' . $news['thumbnail']) }}" alt="image" style="width: 850px; height: 250px">
                         <div class="events-card-text">
                             <ul>
-                                <li>Conference</li>
-                                <li>Oct 12, 2022</li>
+                                <li>{{$news['category']}}</li>
+                                <li>{{$news['created_at']}}</li>
                             </ul>
-                            <h4><a href="event-details.html">Annual Conference 2022</a></h4>
-                            <p><i class="fas fa-map-marker-alt"></i> <a href="https://goo.gl/maps/QTg39qSWoB5fdndT7">At City
-                                    Center, 27 Division Street, USA</a></p>
+                            <h4><a href="event-details.html">{{$news['title']}}</a></h4>
+                            <p>{{$news['writer']}}</p>
                             <a class="read-more-btn" href="event-details.html">Read More</a>
                         </div>
                     </div>
-                    <div class="events-card">
-                        <img src="assets/images/events/e2.jpg" alt="image">
-                        <div class="events-card-text">
-                            <ul>
-                                <li>Conference</li>
-                                <li>Oct 13, 2022</li>
-                            </ul>
-                            <h4><a href="event-details.html">Negotiation In Government</a></h4>
-                            <p><i class="fas fa-map-marker-alt"></i> <a href="https://goo.gl/maps/QTg39qSWoB5fdndT7">At City
-                                    Center, 27 Division Street, USA</a></p>
-                            <a class="read-more-btn" href="event-details.html">Read More</a>
-                        </div>
-                    </div>
-                    <div class="events-card">
-                        <img src="assets/images/events/e3.jpg" alt="image">
-                        <div class="events-card-text">
-                            <ul>
-                                <li>Conference</li>
-                                <li>Oct 14, 2022</li>
-                            </ul>
-                            <h4><a href="event-details.html">Annual Health Conference</a></h4>
-                            <p><i class="fas fa-map-marker-alt"></i> <a href="https://goo.gl/maps/QTg39qSWoB5fdndT7">At City
-                                    Center, 27 Division Street, USA</a></p>
-                            <a class="read-more-btn" href="event-details.html">Read More</a>
-                        </div>
-                    </div>
-                    <div class="events-card">
-                        <img src="assets/images/events/e4.jpg" alt="image">
-                        <div class="events-card-text">
-                            <ul>
-                                <li>Conference</li>
-                                <li>Oct 15, 2022</li>
-                            </ul>
-                            <h4><a href="event-details.html">Annual Conference 2022</a></h4>
-                            <p><i class="fas fa-map-marker-alt"></i> <a href="https://goo.gl/maps/QTg39qSWoB5fdndT7">At City
-                                    Center, 27 Division Street, USA</a></p>
-                            <a class="read-more-btn" href="event-details.html">Read More</a>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

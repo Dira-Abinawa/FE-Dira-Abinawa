@@ -23,8 +23,8 @@
         <span>Data Potensi</span>
     </a>
 </li>
-<li class="nav-item {{ Request::is('kategoris*') ? 'active' : '' }}">
-    <a class="nav-link" href="{{ route('kategoris.index') }}">
+<li class="nav-item {{ Request::is('news') ? 'active' : '' }}">
+    <a class="nav-link" href="{{ route('news.index') }}">
         <i class="nav-icon icon-cursos"></i>
         <span>News</span>
     </a>
