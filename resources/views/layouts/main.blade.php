@@ -74,8 +74,8 @@
                                     <li class="nav-item">
                                         <a href="#" class="nav-link dropdown-toggle">Kepengurusan</a>
                                         <ul class="dropdown-menu">
-                                            <li class="nav-item"><a href="{{route('dewanKerja')}}" class="nav-link">Kwartir Ranting</a></li>
-                                            <li class="nav-item"><a href="{{route('kwartirRanting')}}" class="nav-link">Dewan Kerja</a></li>
+                                            <li class="nav-item"><a href="{{route('kwartirRanting')}}" class="nav-link">Kwartir Ranting</a></li>
+                                            <li class="nav-item"><a href="{{route('dewanKerja')}}" class="nav-link">Dewan Kerja</a></li>
                                         </ul>
                                     </li> 
                                     <li class="nav-item"><a href="{{route('detailSaka')}}" class="nav-link">Satuan Karya</a></li>
@@ -85,7 +85,7 @@
                             <li class="nav-item">
                                 <a href="#" class="nav-link dropdown-toggle">Info </a>
                                 <ul class="dropdown-menu">
-                                    <li class="nav-item"><a href="{{route('kegiatan')}}" class="nav-link">Kegiatan</a></li>
+                                    <li class="nav-item"><a href="{{route('news')}}" class="nav-link">Berita</a></li>
                                     <li class="nav-item"><a href="{{route('hubungiKami')}}" class="nav-link">Hubungi Kami</a></li>
                                 </ul>
                             </li>

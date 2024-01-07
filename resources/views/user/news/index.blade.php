@@ -5,10 +5,10 @@
     <section class="uni-banner">
         <div class="container">
             <div class="uni-banner-text-area">
-                <h1>Kegiatan Kami</h1>
+                <h1>Berita Terkini</h1>
                 <ul>
                     <li><a href="index.html">Beranda</a></li>
-                    <li>Kegiatan</li>
+                    <li>Berita Terkini</li>
                 </ul>
             </div>
         </div>
@@ -29,8 +29,8 @@
                                         <li>{{ $event['category'] }}</li>
                                         <li>{{ $event['created_at'] }}</li>
                                     </ul>
-                                    <h4><a href="#">{{ $event['title'] }}</a></h4>
-                                    <a class="read-more-btn" href="#">Read More</a>
+                                    <h4><a href="{{ route('detailNewsUser') }}">{{ $event['title'] }}</a></h4>
+                                    <a class="read-more-btn" href="{{ route('detailNewsUser') }}">Read More</a>
                                 </div>
                             </div>
                         </div>

@@ -74,18 +74,14 @@ class UserController extends Controller
     // end Artibute
 
 
-    public function kegiatan()
+    public function news()
     {  $apiUrl = "http://127.0.0.1:3000/news/";
         
         $data = file_get_contents($apiUrl);
     
         $newsData = json_decode($data, true);
         
-        return view('user.kegiatan.index', ['newsData' => $newsData]);
-    }
-    public function detailKegiatan()
-    {
-        return view('user.kegiatan.detail');
+        return view('user.news.index', ['newsData' => $newsData]);
     }
  
     

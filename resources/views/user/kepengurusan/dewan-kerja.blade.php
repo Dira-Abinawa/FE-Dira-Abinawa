@@ -8,39 +8,143 @@
                     <div class="details-text-area">
                         <img class="details-main-img" src="{{asset('assets/images/team/dira2.jpg')}}" alt="image">
                         <h3>Dewan Kerja Ranting Padalarang</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt labore
-                            et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamc laboris nisi
-                            ut aliquip commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur commodo. Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit.</p>
-                        <h3>Health Benefits For Veterans</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt labore
-                            et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamc laboris nisi
-                            ut aliquip commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur commodo.</p>
-                        <ul>
-                            <li>Lorem ipsum dolor sit amet.</li>
-                            <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</li>
-                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, debitis!</li>
-                        </ul>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt labore
-                            et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamc laboris nisi
-                            ut aliquip commodo consequat.</p>
-                        <div class="details-img-area mt-15">
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6 col-sm-12 col-12 mb-30">
-                                    <img src="{{asset('assets/images/inner-images/sd2.jpg')}}" alt="image">
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-12 col-12 mb-30">
-                                    <img src="{{asset('assets/images/inner-images/sd3.jpg')}}" alt="image">
-                                </div>
-                            </div>
-                        </div>
-                        <h3 class="mt-0">Complaints About Medicine</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt labore
-                            et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamc laboris nisi
-                            ut aliquip commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur commodo.</p>
+                        <p>Berikut merupakan data kepengurusan serta jabatan yang ada di Dewan Kerja Ranting Padalarang </p>
+                        <style>
+                            table {
+                                width: 100%;
+                                border-collapse: collapse;
+                                margin-top: 20px;
+                            }
+                    
+                            table, th, td {
+                                border: 1px solid #ddd;
+                            }
+                    
+                            th, td {
+                                padding: 10px;
+                                text-align: left;
+                            }
+                    
+                            th {
+                                background-color: #f2f2f2;
+                            }
+                        </style>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Nama</th>
+                                    <th>Jabatan</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>RD. GALIH RAKASIWI</td>
+                                    <td>Ketua</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>RUWINA ALFIRNASARI</td>
+                                    <td>Wakil Ketua</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>ILMA RAHMATILAH</td>
+                                    <td>Sekretaris I</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>NOVIA KUSUMA DWIYANTI</td>
+                                    <td>Sekretaris II</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>PUTRI ANGGRAENI</td>
+                                    <td>Bendahara</td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td>DAVID FAKHRI ARDANA</td>
+                                    <td>Ketua Bidang Kajian Kepramukaan</td>
+                                </tr>
+                                <tr>
+                                    <td>7</td>
+                                    <td>RISMAYANTI</td>
+                                    <td>Anggota Bidang</td>
+                                </tr>
+                                <tr>
+                                    <td>8</td>
+                                    <td>ANGGI NOVITA</td>
+                                    <td>Anggota Bidang</td>
+                                </tr>
+                                <tr>
+                                    <td>9</td>
+                                    <td>FAROH SITI</td>
+                                    <td>Anggota Bidang</td>
+                                </tr>
+                                <tr>
+                                    <td>10</td>
+                                    <td>RAJA DANIS</td>
+                                    <td>Ketua Bidang Kegiatan</td>
+                                </tr>
+                                <tr>
+                                    <td>11</td>
+                                    <td>ZAHRA NABILA PERMATA</td>
+                                    <td>Anggota Bidang</td>
+                                </tr>
+                                <tr>
+                                    <td>12</td>
+                                    <td>HAMKA SALMAN AL FARITSI</td>
+                                    <td>Anggota Bidang</td>
+                                </tr>
+                                <tr>
+                                    <td>13</td>
+                                    <td>TIKA YOLANDA</td>
+                                    <td>Anggota Bidang</td>
+                                </tr>
+                                <tr>
+                                    <td>14</td>
+                                    <td>RIFQI ADITYA PRATAMA</td>
+                                    <td>Ketua Bidang Pembinaan Pengembangan</td>
+                                </tr>
+                                <tr>
+                                    <td>15</td>
+                                    <td>IBNU ALBANI SAPUTRA</td>
+                                    <td>Anggota Bidang</td>
+                                </tr>
+                                <tr>
+                                    <td>16</td>
+                                    <td>NAZWA ANGGITA</td>
+                                    <td>Anggota Bidang</td>
+                                </tr>
+                                <tr>
+                                    <td>17</td>
+                                    <td>AGI RUSTANDI</td>
+                                    <td>Anggota Bidang</td>
+                                </tr>
+                                <tr>
+                                    <td>18</td>
+                                    <td>RAYHAN JUNDI</td>
+                                    <td>Ketua Bidang Penelitian Evaluasi</td>
+                                </tr>
+                                <tr>
+                                    <td>19</td>
+                                    <td>RAFLY RACHELSA</td>
+                                    <td>Anggota Bidang</td>
+                                </tr>
+                                <tr>
+                                    <td>20</td>
+                                    <td>TABAH SHOFIKA</td>
+                                    <td>Anggota Bidang</td>
+                                </tr>
+                                <tr>
+                                    <td>21</td>
+                                    <td>NURUL SITI</td>
+                                    <td>Anggota Bidang</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
                 <div class="col-lg-4">
