@@ -25,7 +25,7 @@
                     <td>{{ $singleNews['writer'] }}</td>
                     <td>{{ $singleNews['created_at'] }}</td>
                     <td>{{ $singleNews['updated_at'] }}</td>
-                    <td>{{ $singleNews['comments'] }}</td>
+                    <td>{{ $singleNews['comments'] }}</td>  
                     <td>
                         {!! Form::open(['route' => ['news.destroy', $singleNews['id']], 'method' => 'delete']) !!}
                         <div class='btn-group'>

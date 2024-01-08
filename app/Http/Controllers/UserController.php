@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Flash;
+use Illuminate\Support\Facades\Http;
+use Response;
 
 class UserController extends Controller
 {
@@ -12,7 +15,7 @@ class UserController extends Controller
         return view('user.data-anggota');
     }
 
-    // Navbar Sejarah 
+    // Navbar Sejarah
     public function sejarahPadalarang()
     {
         return view('user.sejarah.sejarah-padalarang');
@@ -74,21 +77,17 @@ class UserController extends Controller
     // end Artibute
 
 
-    public function kegiatan()
+    public function news()
     {  $apiUrl = "http://127.0.0.1:3000/news/";
-        
+
         $data = file_get_contents($apiUrl);
-    
+
         $newsData = json_decode($data, true);
-        
-        return view('user.kegiatan.index', ['newsData' => $newsData]);
+
+        return view('user.news.index', ['newsData' => $newsData]);
     }
-    public function detailKegiatan()
-    {
-        return view('user.kegiatan.detail');
-    }
- 
-    
+
+
     public function detailInfoTerkini()
     {
         return view('user.info.detail');
@@ -97,4 +96,29 @@ class UserController extends Controller
     {
         return view('user.hubungi-kami');
     }
+
+    // public function detailNewsUser($id)
+    // {
+    //     $response = Http::get("http://127.0.0.1:3000/news/{$id}");
+    //     if ($response->successful()) {
+    //         $news = $response->json();
+    //     } else {
+    //     Flash::error('Failed to fetch school data from the API.');
+    //         return redirect(route('news.index'));
+    //     }
+    //     return view('user.detail-news')->with('news', $news);
+    // }
+
+    public function detailNewsUser($id)
+    {
+        $apiUrl = "http://127.0.0.1:3000/news/{$id}";
+
+        $news = file_get_contents($apiUrl);
+
+        $newsData = json_decode($news, true);
+
+        // Pass $newsData to the view, not $news
+        return view('user.detail-news')->with('news', $newsData);
+    }
+
 }

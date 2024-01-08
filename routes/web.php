@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -60,8 +61,8 @@ Route::group(['prefix' => 'profil'], function () {
 // Organisasi Routes
 Route::group(['prefix' => 'organisasi'], function () {
     Route::group(['prefix' => 'kepengurusan'], function () {
-        Route::get('kwartir-ranting', [UserController::class, 'dewanKerja'])->name('dewanKerja');
-        Route::get('dewan-kerja', [UserController::class, 'kwartirRanting'])->name('kwartirRanting');
+        Route::get('dewan-kerja', [UserController::class, 'dewanKerja'])->name('dewanKerja');
+        Route::get('kwartir-ranting', [UserController::class, 'kwartirRanting'])->name('kwartirRanting');
     });
 
     Route::group(['prefix' => 'satuan-karya'], function () {
@@ -77,20 +78,16 @@ Route::group(['prefix' => 'organisasi'], function () {
 
 // Info Routes
 Route::group(['prefix' => 'info'], function () {
-    Route::get('kegiatan', [UserController::class, 'kegiatan'])->name('kegiatan');
+    Route::get('news', [UserController::class, 'news'])->name('news');
+    Route::get('news/detail/{id}', [UserController::class, 'detailNewsUser'])->name('detailNewsUser');
     Route::get('informasi-terkini', [UserController::class, 'infoTerkini'])->name('infoTerkini');
     Route::get('hubungi-kami', [UserController::class, 'hubungiKami'])->name('hubungiKami');
 });
 
 Route::prefix('admin')->middleware('isAuth')->group(function () {
     Route::resource('kategoris', KategoriController::class);
+    Route::resource('sekolahs', App\Http\Controllers\SekolahController::class);
+    Route::resource('schools', App\Http\Controllers\SchoolsController::class);
+    Route::resource('news', App\Http\Controllers\NewsController::class);
 });
 
-
-Route::resource('sekolahs', App\Http\Controllers\SekolahController::class);
-
-
-Route::resource('schools', App\Http\Controllers\SchoolsController::class);
-
-
-Route::resource('news', App\Http\Controllers\NewsController::class);
