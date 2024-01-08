@@ -8,6 +8,7 @@ use App\Repositories\DkrantingRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
+use Illuminate\Support\Facades\Http;
 use Response;
 
 class DkrantingController extends AppBaseController
@@ -21,7 +22,7 @@ class DkrantingController extends AppBaseController
     }
 
     /**
-     * Display a listing of the Dkranting.
+     * Display a listing of the Dkrantings.
      *
      * @param Request $request
      *
@@ -29,14 +30,22 @@ class DkrantingController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $dkrantings = $this->dkrantingRepository->all();
+        $apiUrl = "http://127.0.0.1:3000/dkr/";
 
-        return view('dkrantings.index')
-            ->with('dkrantings', $dkrantings);
+        $response = Http::get($apiUrl);
+        if ($response->successful()) {
+            $dkrantingData = $response->json();
+        } else {
+            Flash::error('Failed to fetch data from the API.');
+
+            return redirect(route('dkrantings.index'));
+        }
+
+        return view('dkrantings.index', ['dkrantingData' => $dkrantingData]);
     }
 
     /**
-     * Show the form for creating a new Dkranting.
+     * Show the form for creating a new dkrantings.
      *
      * @return Response
      */
@@ -46,25 +55,26 @@ class DkrantingController extends AppBaseController
     }
 
     /**
-     * Store a newly created Dkranting in storage.
+     * Store a newly created dkranting in storage.
      *
-     * @param CreateDkrantingRequest $request
+     * @param CreatedkrantingRequest $request
      *
      * @return Response
      */
-    public function store(CreateDkrantingRequest $request)
+    public function store(Request $request)
     {
         $input = $request->all();
-
-        $dkranting = $this->dkrantingRepository->create($input);
-
-        Flash::success('Dkranting saved successfully.');
+        $apiResponse = Http::post('http://127.0.0.1:3000/dkr/', $input);
+        if ($apiResponse->successful()) {
+            Flash::success('dkranting saved and data sent to the API successfully.');
+        } else {
+            Flash::error('Failed to send data to the API. dkranting saved locally.');
+        }
 
         return redirect(route('dkrantings.index'));
     }
-
     /**
-     * Display the specified Dkranting.
+     * Display the specified dkrantings.
      *
      * @param int $id
      *
@@ -72,19 +82,18 @@ class DkrantingController extends AppBaseController
      */
     public function show($id)
     {
-        $dkranting = $this->dkrantingRepository->find($id);
-
-        if (empty($dkranting)) {
-            Flash::error('Dkranting not found');
-
+        $response = Http::get("http://127.0.0.1:3000/dkr/{$id}");
+        if ($response->successful()) {
+            $dkranting = $response->json();
+        } else {
+            Flash::error('Failed to fetch school data from the API.');
             return redirect(route('dkrantings.index'));
         }
-
         return view('dkrantings.show')->with('dkranting', $dkranting);
     }
 
     /**
-     * Show the form for editing the specified Dkranting.
+     * Show the form for editing the specified dkrantings.
      *
      * @param int $id
      *
@@ -92,44 +101,45 @@ class DkrantingController extends AppBaseController
      */
     public function edit($id)
     {
-        $dkranting = $this->dkrantingRepository->find($id);
-
-        if (empty($dkranting)) {
-            Flash::error('Dkranting not found');
-
+        $response = Http::get("http://127.0.0.1:3000/dkr/{$id}");
+        if ($response->successful()) {
+            $dkranting = $response->json();
+        } else {
+            Flash::error('Failed to fetch school data from the API.');
             return redirect(route('dkrantings.index'));
         }
-
         return view('dkrantings.edit')->with('dkranting', $dkranting);
     }
 
+
     /**
-     * Update the specified Dkranting in storage.
+     * Update the specified dkranting in storage.
      *
      * @param int $id
-     * @param UpdateDkrantingRequest $request
+     * @param UpdatedkrantingRequest $request
      *
      * @return Response
      */
-    public function update($id, UpdateDkrantingRequest $request)
+    public function update($id, UpdatedkrantingRequest $request)
     {
-        $dkranting = $this->dkrantingRepository->find($id);
-
-        if (empty($dkranting)) {
-            Flash::error('Dkranting not found');
-
-            return redirect(route('dkrantings.index'));
+        $response = Http::get("http://127.0.0.1:3000/dkr/{$id}");
+        if ($response->successful()) {
+            $dkranting = $response->json();
+            $updatedData = array_merge($dkranting, $request->all());
+            $updateResponse = Http::put("http://127.0.0.1:3000/dkr/{$id}", $updatedData);
+            if ($updateResponse->successful()) {
+                Flash::success('dkranting updated successfully.');
+            } else {
+                Flash::error('Failed to update school data in the API.');
+            }
+        } else {
+            Flash::error('Failed to fetch school data from the API.');
         }
-
-        $dkranting = $this->dkrantingRepository->update($request->all(), $id);
-
-        Flash::success('Dkranting updated successfully.');
-
         return redirect(route('dkrantings.index'));
     }
 
     /**
-     * Remove the specified Dkranting from storage.
+     * Remove the specified dkranting from storage.
      *
      * @param int $id
      *
@@ -139,18 +149,19 @@ class DkrantingController extends AppBaseController
      */
     public function destroy($id)
     {
-        $dkranting = $this->dkrantingRepository->find($id);
-
-        if (empty($dkranting)) {
-            Flash::error('Dkranting not found');
-
-            return redirect(route('dkrantings.index'));
+        $response = Http::get("http://127.0.0.1:3000/dkr/{$id}");
+        if ($response->successful()) {
+            $deleteResponse = Http::delete("http://127.0.0.1:3000/dkr/{$id}");
+            if ($deleteResponse->successful()) {
+                Flash::success('dkranting deleted successfully from the API.');
+            } else {
+                Flash::error('Failed to delete school data from the API.');
+            }
+        } else {
+            Flash::error('Failed to fetch school data from the API.');
         }
-
-        $this->dkrantingRepository->delete($id);
-
-        Flash::success('Dkranting deleted successfully.');
-
+        // $this->dkrantingRepository->destroy($id);
+        Flash::success('dkranting deleted successfully from the local database.');
         return redirect(route('dkrantings.index'));
     }
 }
