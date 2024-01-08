@@ -12,6 +12,10 @@ class UserController extends Controller
         return view('user.data-anggota');
     }
 
+    public function dashboardAdmin()
+    {
+        return view('admin.dashboard');
+    }
     // Navbar Sejarah 
     public function sejarahPadalarang()
     {

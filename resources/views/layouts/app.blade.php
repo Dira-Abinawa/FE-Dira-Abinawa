@@ -43,10 +43,9 @@
                 <div class="dropdown-header text-center">
                     <strong>Account</strong>
                 </div>
-                
-                <a class="dropdown-item" href="#">
-                    <i class="fa fa-user"></i> Profile</a>
-               
+                <a class="dropdown-item" href="{{ route('detailUsers', ['id' => Auth::user()->id]) }}">
+                    <i class="fa fa-user"></i> Profile
+                </a>
                 <a href="{{ url('/logout') }}" class="dropdown-item btn btn-default btn-flat"
                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     <i class="fa fa-lock"></i>Logout

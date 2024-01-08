@@ -1,61 +1,49 @@
+<br>
 <li>
-    <a class="nav-link" href="{{ route('kategoris.index') }}">
+    <a class="nav-link" href="#">
         <i class="nav-icon icon-cursos"></i>
         <span> {{ Auth::user()->name }}</span>
     </a>
 </li>
+<br>
+<li class="nav-item {{ Request::is('dashboard*') ? 'active' : '' }}">
+    <a class="nav-link" href="{{ route('dashboard') }}">
+        <i class="nav-icon fas fa-tachometer-alt"></i>
+        <span>Dashboard</span>
+    </a>
+</li>
 
-<li class="nav-item {{ Request::is('kategoris*') ? 'active' : '' }}">
-    <a class="nav-link" href="{{ route('kategoris.index') }}">
-        <i class="nav-icon icon-cursos"></i>
+<br>
+@if(auth()->user()->is_admin)
+<li class="nav-item {{ Request::is('dkrantings*') ? 'active' : '' }}">
+    <a class="nav-link" href="{{ route('dkrantings.index') }}">
+        <i class="nav-icon icon-people"></i>
         <span>Dewan Kerja Ranting</span>
     </a>
 </li>
-<li class="nav-item {{ Request::is('kategoris*') ? 'active' : '' }}">
-    <a class="nav-link" href="{{ route('kategoris.index') }}">
-        <i class="nav-icon icon-cursos"></i>
+@endif
+
+<li class="nav-item {{ Request::is('schools*') ? 'active' : '' }}">
+    <a class="nav-link" href="{{ route('schools.index') }}">
+        <i class="nav-icon icon-organization"></i>
         <span>Data Pangkalan</span>
     </a>
 </li>
-<li class="nav-item {{ Request::is('kategoris*') ? 'active' : '' }}">
-    <a class="nav-link" href="{{ route('kategoris.index') }}">
-        <i class="nav-icon icon-cursos"></i>
-        <span>Data Potensi</span>
-    </a>
-</li>
+
 <li class="nav-item {{ Request::is('news') ? 'active' : '' }}">
     <a class="nav-link" href="{{ route('news.index') }}">
-        <i class="nav-icon icon-cursos"></i>
+        <i class="nav-icon icon-news"></i>
         <span>News</span>
     </a>
 </li>
-<li class="nav-item {{ Request::is('kategoris*') ? 'active' : '' }}">
-    <a class="nav-link" href="{{ route('kategoris.index') }}">
-        <i class="nav-icon icon-cursos"></i>
-        <span>Activity</span>
-    </a>
-</li>
-<li class="nav-item {{ Request::is('kategoris*') ? 'active' : '' }}">
-    <a class="nav-link" href="{{ route('kategoris.index') }}">
-        <i class="nav-icon icon-cursos"></i>
-        <span>Opinion</span>
-    </a>
-</li>
-<li class="nav-item {{ Request::is('kategoris*') ? 'active' : '' }}">
-    <a class="nav-link" href="{{ route('kategoris.index') }}">
-        <i class="nav-icon icon-cursos"></i>
-        <span>User</span>
-    </a>
-</li>
-{{-- <li class="nav-item {{ Request::is('sekolahs*') ? 'active' : '' }}">
-    <a class="nav-link" href="{{ route('sekolahs.index') }}">
-        <i class="nav-icon icon-cursor"></i>
-        <span>Sekolahs</span>
-    </a>
-</li> --}}
-<li class="nav-item {{ Request::is('schools*') ? 'active' : '' }}">
-    <a class="nav-link" href="{{ route('schools.index') }}">
-        <i class="nav-icon icon-cursor"></i>
-        <span>Schools</span>
-    </a>
-</li>
+<hr style="height: 10px; color: rgb(0, 0, 0)" />
+
+@if(auth()->user()->is_admin)
+    <li class="nav-item {{ Request::is('users*') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('users.index') }}">
+            <i class="nav-icon icon-cursor"></i>
+            <span>Users</span>
+        </a>
+    </li>
+@endif
+

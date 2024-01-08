@@ -7,7 +7,9 @@
                 <th>Ambalan/Regu Name</th>
                 <th>Gudep</th>
                 <th>Registration</th>
+                @if(auth()->user()->is_admin)
                 <th colspan="3">Action</th>
+                @endif
             </tr>
         </thead>
         <tbody>
@@ -24,6 +26,7 @@
                             <span class="badge badge-danger">Not Registered</span>
                         @endif
                     </td>
+                    @if(auth()->user()->is_admin)
                     <td>
                         {!! Form::open(['route' => ['schools.destroy', $schools['id']], 'method' => 'delete']) !!}
                         <div class='btn-group'>
@@ -38,6 +41,7 @@
                         </div>
                         {!! Form::close() !!}
                     </td>
+                    @endif
                 </tr>
             @endforeach
         </tbody>

@@ -4,8 +4,9 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsersTable extends Migration
+class CreateDkrantingsTable extends Migration
 {
+
     /**
      * Run the migrations.
      *
@@ -13,18 +14,16 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->id();
+        Schema::create('dkrantings', function (Blueprint $table) {
+            $table->id('id');
             $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->boolean('active');
-            $table->boolean('is_admin');
-            $table->rememberToken();
+            $table->string('school_name');
+            $table->string('level');
+            $table->string('position');
+            $table->string('period');
+            $table->string('status');
             $table->timestamps();
             $table->softDeletes();
-
         });
     }
 
@@ -35,6 +34,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::drop('dkrantings');
     }
 }
