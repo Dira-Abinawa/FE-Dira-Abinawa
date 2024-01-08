@@ -59,13 +59,14 @@
                                             <li class="nav-item"><a href="{{route('sejarahPadalarang')}}" class="nav-link">Pramuka Padalarang</a></li>
                                             <li class="nav-item"><a href="{{route('sejarahDira')}}" class="nav-link">Dira Abinawa</a></li>
                                         </ul>
-                                    </li> <li class="nav-item">
+                                    </li> 
+                                    {{-- <li class="nav-item">
                                         <a href="#" class="nav-link dropdown-toggle">Atribute</a>
                                         <ul class="dropdown-menu">
                                             <li class="nav-item"><a href="{{route('lambangPdl')}}" class="nav-link">Lambang</a></li>
                                             <li class="nav-item"><a href="{{route('sandiDira')}}" class="nav-link">Sandi</a></li>
                                         </ul>
-                                    </li>
+                                    </li> --}}
                                 </ul>
                             </li>
                             <li class="nav-item">
