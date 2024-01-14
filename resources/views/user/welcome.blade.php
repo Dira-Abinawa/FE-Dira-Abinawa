@@ -14,8 +14,7 @@
                     <div class="banner-text-area banner-text-area-1">
                         <h6>Gerakan Pramuka</h6>
                         <h1>Kwartir Ranting Padalarang</h1>
-                        <p>Lorem ipsum dolor sit amet consectetuer adipiscing phasellus hendrerit lorem dolor sit amet magna
-                            nibh nec urna in nisi neque aliquet ve, dapibus id dolor sit amet magna aliqu amet.</p>
+                        <p>Wadah pembinaan dan pengembangan Gerakan Pramuka Kwartir Ranting Padalarang.</p>
                     </div>
                 </div>
                 <div class="col-lg-5">
@@ -33,8 +32,7 @@
         <div class="container">
             <div class="default-section-title default-section-title-middle">
                 <h3>Data Statistik Potensi</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua quis ipsum suspendisse</p>
+                <p>Jumlah Seluruh sekolah aktif yang telah terdaftar di Kwartir Ranting Padalarang.</p>
             </div>
             <div class="section-content">
                 <div class="text-center">
@@ -95,8 +93,7 @@
         <div class="container">
             <div class="default-section-title default-section-title-middle">
                 <h3>Berita Terkini</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua quis ipsum suspendisse</p>
+                <p>Sumber berita berasal dari Warta Kwarnas dan Postingan berita Anggota Gerakan Pramuka Kwartir Ranting Padalarang.</p>
             </div>
             <div class="section-content">
                 <div class="events-slider-area owl-carousel">

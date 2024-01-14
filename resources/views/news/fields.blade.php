@@ -10,41 +10,48 @@
     {!! Form::text('title', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Thumbnail Field -->
+{{-- Content Field --}}
 <div class="form-group col-sm-6">
+    {!! Form::label('content', 'Content:') !!}
+    {!! Form::textarea('content', null, ['class' => 'form-control']) !!}
+</div>
+
+
+<!-- Thumbnail Field -->
+{{-- <div class="form-group col-sm-6">
     {!! Form::label('thumbnail', 'Thumbnail:') !!}
     {!! Form::text('thumbnail', null, ['class' => 'form-control']) !!}
-</div>
+</div> --}}
 
 <!-- Images Field -->
-<div class="form-group col-sm-6">
+{{-- <div class="form-group col-sm-6">
     {!! Form::label('images', 'Images:') !!}
     {!! Form::text('images', null, ['class' => 'form-control']) !!}
-</div>
+</div> --}}
 
 <!-- Writer Field -->
-<div class="form-group col-sm-6">
+{{-- <div class="form-group col-sm-6">
     {!! Form::label('writer', 'Writer:') !!}
     {!! Form::text('writer', null, ['class' => 'form-control']) !!}
-</div>
+</div> --}}
 
 <!-- Created At Field -->
-<div class="form-group col-sm-6">
+{{-- <div class="form-group col-sm-6">
     {!! Form::label('created_at', 'Created At:') !!}
     {!! Form::text('created_at', null, ['class' => 'form-control']) !!}
-</div>
+</div> --}}
 
 <!-- Updated At Field -->
-<div class="form-group col-sm-6">
+{{-- <div class="form-group col-sm-6">
     {!! Form::label('updated_at', 'Updated At:') !!}
     {!! Form::text('updated_at', null, ['class' => 'form-control']) !!}
-</div>
+</div> --}}
 
 <!-- Comments Field -->
-<div class="form-group col-sm-6">
+{{-- <div class="form-group col-sm-6">
     {!! Form::label('comments', 'Comments:') !!}
     {!! Form::text('comments', null, ['class' => 'form-control']) !!}
-</div>
+</div> --}}
 
 <!-- Submit Field -->
 <div class="form-group col-sm-12">

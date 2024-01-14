@@ -12,19 +12,24 @@
             </tr>
         </thead>
         <tbody>
-        @foreach($dkrantings as $dkranting)
+        @foreach($dkrantingData as $dkranting)
             <tr>
-                <td>{{ $dkranting->name }}</td>
-            <td>{{ $dkranting->school_name }}</td>
-            <td>{{ $dkranting->level }}</td>
-            <td>{{ $dkranting->position }}</td>
-            <td>{{ $dkranting->period }}</td>
-            <td>{{ $dkranting->status }}</td>
+                <td>{{ $dkranting['name'] }}</td>
+            <td>{{ $dkranting['school_name'] }}</td>
+            <td>{{ $dkranting['level'] }}</td>
+            <td>{{ $dkranting['position'] }}</td>
+            <td>{{ $dkranting['period'] }}</td>
+            @if ($dkranting['status'] == 1)
+                <td><span class="badge badge-success">Active</span></td>
+            @else
+                <td><span class="badge badge-danger">Inactive</span></td>
+
+            @endif
                 <td>
-                    {!! Form::open(['route' => ['dkrantings.destroy', $dkranting->id], 'method' => 'delete']) !!}
+                    {!! Form::open(['route' => ['dkrantings.destroy', $dkranting['id']], 'method' => 'delete']) !!}
                     <div class='btn-group'>
-                        <a href="{{ route('dkrantings.show', [$dkranting->id]) }}" class='btn btn-ghost-success'><i class="fa fa-eye"></i></a>
-                        <a href="{{ route('dkrantings.edit', [$dkranting->id]) }}" class='btn btn-ghost-info'><i class="fa fa-edit"></i></a>
+                        <a href="{{ route('dkrantings.show', [$dkranting['id']]) }}" class='btn btn-ghost-success'><i class="fa fa-eye"></i></a>
+                        <a href="{{ route('dkrantings.edit', [$dkranting['id']]) }}" class='btn btn-ghost-info'><i class="fa fa-edit"></i></a>
                         {!! Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-ghost-danger', 'onclick' => "return confirm('Are you sure?')"]) !!}
                     </div>
                     {!! Form::close() !!}

@@ -16,7 +16,13 @@ class UserController extends Controller
     {
         return view('admin.dashboard');
     }
-    // Navbar Sejarah 
+    public function testAdmin()
+    {
+        $test = 'test';
+        dd($test);
+        return view();
+    }
+    // Navbar Sejarah
     public function sejarahPadalarang()
     {
         return view('user.sejarah.sejarah-padalarang');
@@ -80,15 +86,15 @@ class UserController extends Controller
 
     public function news()
     {  $apiUrl = "http://127.0.0.1:3000/news/";
-        
+
         $data = file_get_contents($apiUrl);
-    
+
         $newsData = json_decode($data, true);
-        
+
         return view('user.news.index', ['newsData' => $newsData]);
     }
- 
-    
+
+
     public function detailInfoTerkini()
     {
         return view('user.info.detail');
@@ -96,5 +102,17 @@ class UserController extends Controller
     public function hubungiKami()
     {
         return view('user.hubungi-kami');
+    }
+
+    public function detailNewsUser($id)
+    {
+        $apiUrl = "http://127.0.0.1:3000/news/{$id}";
+
+        $news = file_get_contents($apiUrl);
+
+        $newsData = json_decode($news, true);
+
+        // Pass $newsData to the view, not $news
+        return view('user.detail-news')->with('news', $newsData);
     }
 }

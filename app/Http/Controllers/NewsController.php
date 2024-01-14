@@ -32,19 +32,19 @@ class NewsController extends AppBaseController
      public function index(Request $request)
      {
          $apiUrl = "http://127.0.0.1:3000/news/";
- 
+
          $response = Http::get($apiUrl);
          if ($response->successful()) {
              $newsData = $response->json();
          } else {
              Flash::error('Failed to fetch data from the API.');
- 
+
              return redirect(route('news.index'));
          }
- 
+
          return view('news.index', ['newsData' => $newsData]);
      }
- 
+
      public function detailNewsUser($id)
      {
          $response = Http::get("http://127.0.0.1:3000/news/{$id}");
@@ -65,7 +65,7 @@ class NewsController extends AppBaseController
      {
          return view('news.create');
      }
- 
+
      /**
       * Store a newly created news in storage.
       *
@@ -82,7 +82,7 @@ class NewsController extends AppBaseController
          } else {
              Flash::error('Failed to send data to the API. news saved locally.');
          }
- 
+
          return redirect(route('news.index'));
      }
      /**
@@ -103,7 +103,7 @@ class NewsController extends AppBaseController
          }
          return view('news.show')->with('news', $news);
      }
- 
+
      /**
       * Show the form for editing the specified news.
       *
@@ -122,8 +122,8 @@ class NewsController extends AppBaseController
          }
          return view('news.edit')->with('news', $news);
      }
- 
- 
+
+
      /**
       * Update the specified news in storage.
       *
@@ -149,7 +149,7 @@ class NewsController extends AppBaseController
          }
          return redirect(route('news.index'));
      }
- 
+
      /**
       * Remove the specified news from storage.
       *

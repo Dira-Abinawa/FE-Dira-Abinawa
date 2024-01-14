@@ -23,14 +23,19 @@
                     @foreach ($newsData as $event)
                         <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
                             <div class="events-card">
-                                <img src="{{ asset('assets/images/file_image/' . $event['thumbnail']) }}" alt="image" style="width: 850px; height: 250px">
+                                <img src="{{ asset('assets/images/file_image/' . $event['thumbnail']) }}" alt="image"
+                                    style="width: 850px; height: 250px">
                                 <div class="events-card-text">
                                     <ul>
                                         <li>{{ $event['category'] }}</li>
                                         <li>{{ $event['created_at'] }}</li>
                                     </ul>
-                                    <h4><a href="{{ route('detailNewsUser') }}">{{ $event['title'] }}</a></h4>
-                                    <a class="read-more-btn" href="{{ route('detailNewsUser') }}">Read More</a>
+                                    <h4><a
+                                            href="{{ route('detailNewsUser', ['id' => $event['id']]) }}">{{ $event['title'] }}</a>
+                                    </h4>
+                                    <a class="read-more-btn"
+                                        href="{{ route('detailNewsUser', ['id' => $event['id']]) }}">Read More</a>
+
                                 </div>
                             </div>
                         </div>

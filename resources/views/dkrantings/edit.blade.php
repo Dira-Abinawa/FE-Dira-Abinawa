@@ -18,7 +18,7 @@
                               <strong>Edit Dkranting</strong>
                           </div>
                           <div class="card-body">
-                              {!! Form::model($dkranting, ['route' => ['dkrantings.update', $dkranting->id], 'method' => 'patch']) !!}
+                              {!! Form::model($dkranting, ['route' => ['dkrantings.update', $dkranting['id']], 'method' => 'patch']) !!}
 
                               @include('dkrantings.fields')
 

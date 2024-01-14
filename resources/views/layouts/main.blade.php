@@ -35,7 +35,7 @@
                 <div class="mobile-nav">
                     <a href="index.html" class="logo"><img src="{{ asset('assets/images/logosu.png') }}" style="width: 100px" alt="logo" /></a>
                     <ul class="menu-sidebar menu-small-device">
-                       
+
                     </ul>
                 </div>
             </div>
@@ -59,7 +59,7 @@
                                             <li class="nav-item"><a href="{{route('sejarahPadalarang')}}" class="nav-link">Pramuka Padalarang</a></li>
                                             <li class="nav-item"><a href="{{route('sejarahDira')}}" class="nav-link">Dira Abinawa</a></li>
                                         </ul>
-                                    </li> 
+                                    </li>
                                     {{-- <li class="nav-item">
                                         <a href="#" class="nav-link dropdown-toggle">Atribute</a>
                                         <ul class="dropdown-menu">
@@ -78,7 +78,7 @@
                                             <li class="nav-item"><a href="{{route('kwartirRanting')}}" class="nav-link">Kwartir Ranting</a></li>
                                             <li class="nav-item"><a href="{{route('dewanKerja')}}" class="nav-link">Dewan Kerja</a></li>
                                         </ul>
-                                    </li> 
+                                    </li>
                                     <li class="nav-item"><a href="{{route('detailSaka')}}" class="nav-link">Satuan Karya</a></li>
                                     <li class="nav-item"><a href="{{route('detailUnit')}}" class="nav-link">Unit</a></li>
                                 </ul>
@@ -86,11 +86,11 @@
                             <li class="nav-item">
                                 <a href="#" class="nav-link dropdown-toggle">Info </a>
                                 <ul class="dropdown-menu">
-                                    <li class="nav-item"><a href="{{route('news')}}" class="nav-link">Berita</a></li>
+                                    {{-- <li class="nav-item"><a href="{{route('news')}}" class="nav-link">Berita</a></li> --}}
                                     <li class="nav-item"><a href="{{route('hubungiKami')}}" class="nav-link">Hubungi Kami</a></li>
                                 </ul>
                             </li>
-                            <li class="nav-item"><a href="#" class="nav-link">Warta Pramuka</a></li>
+                            <li class="nav-item"><a href="{{route('news')}}" class="nav-link">Warta Pramuka</a></li>
                         </ul>
                         <div class="menu-sidebar">
                             <ul>

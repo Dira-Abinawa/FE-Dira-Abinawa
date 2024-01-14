@@ -1,18 +1,18 @@
 @extends('layouts.main')
 @section('content')
     <!-- Services details Area Start -->
-    <section class="service-details ptb-100"> 
+    <section class="service-details ptb-100">
         <div class="container">
             <div class="row">
-                @foreach ($news as $item)
                 <div class="col-lg-8">
                     <div class="details-text-area">
-                        <img class="details-main-img" src="assets/images/inner-images/sd-1.jpg" alt="image">
-                        <h3>{{ $item['title'] }}</h3>
-                        <p>{{ $item['content'] }}</p>
+                        <img class="details-main-img" src="{{ asset('assets/images/file_image/' . $news['thumbnail']) }}" alt="image">
+                        <h3>{{ $news['title'] }}</h3>
+                        <!-- Display content with line breaks -->
+                        <p>{!! nl2br(e($news['content'])) !!}</p>
+                        <p>Written by {{ $news['writer'] }}</p>
                     </div>
                 </div>
-                @endforeach
                 <div class="col-lg-4">
                     <div class="sidebar-area pl-20 pt-30">
                         <div class="sidebar-card search-box">
