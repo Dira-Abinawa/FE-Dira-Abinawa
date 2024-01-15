@@ -26,9 +26,18 @@
 <li class="nav-item {{ Request::is('schools*') ? 'active' : '' }}">
     <a class="nav-link" href="{{ route('schools.index') }}">
         <i class="nav-icon icon-organization"></i>
+        <span>Data Potensi</span>
+    </a>
+</li>
+
+@if(auth()->user()->is_admin)
+<li class="nav-item {{ Request::is('schools*') ? 'active' : '' }}">
+    <a class="nav-link" href="{{ route('schools.index') }}">
+        <i class="nav-icon icon-organization"></i>
         <span>Data Pangkalan</span>
     </a>
 </li>
+@endif
 
 <li class="nav-item {{ Request::is('news') ? 'active' : '' }}">
     <a class="nav-link" href="{{ route('news.index') }}">

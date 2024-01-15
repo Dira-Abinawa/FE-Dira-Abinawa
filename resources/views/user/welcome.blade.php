@@ -20,8 +20,7 @@
                 <div class="col-lg-5">
                     <div class="banner-img-area-1">
                         <img src="assets/images/team/pdl2.jpg" alt="image">
-                        <a class="video-popup" href="https://www.youtube.com/watch?v=ukfISpWHVWI"><i
-                                class="fas fa-play"></i></a>
+                        <a class="video-popup" href="https://www.youtube.com/watch?v=mPN9yKc7ry4"><i class="fas fa-play"></i></a>
                     </div>
                 </div>
             </div>
@@ -54,7 +53,9 @@
                     labels: ['SD', 'SMP', 'SMA'],
                     datasets: [{
                         label: 'Jumlah Sekolah per Golongan Sekolah',
-                        backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)'],
+                        backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)'
+                        ],
                         borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)'],
                         borderWidth: 1,
                         data: [150, 200, 100]
@@ -93,23 +94,25 @@
         <div class="container">
             <div class="default-section-title default-section-title-middle">
                 <h3>Berita Terkini</h3>
-                <p>Sumber berita berasal dari Warta Kwarnas dan Postingan berita Anggota Gerakan Pramuka Kwartir Ranting Padalarang.</p>
+                <p>Sumber berita berasal dari Warta Kwarnas dan Postingan berita Anggota Gerakan Pramuka Kwartir Ranting
+                    Padalarang.</p>
             </div>
             <div class="section-content">
                 <div class="events-slider-area owl-carousel">
                     @foreach ($newsData as $news)
-                    <div class="events-card">
-                        <img src="{{ asset('assets/images/file_image/' . $news['thumbnail']) }}" alt="image" style="width: 850px; height: 250px">
-                        <div class="events-card-text">
-                            <ul>
-                                <li>{{$news['category']}}</li>
-                                <li>{{$news['created_at']}}</li>
-                            </ul>
-                            <h4><a href="event-details.html">{{$news['title']}}</a></h4>
-                            <p>{{$news['writer']}}</p>
-                            <a class="read-more-btn" href="event-details.html">Read More</a>
+                        <div class="events-card">
+                            <img src="{{ asset('assets/images/file_image/' . $news['thumbnail']) }}" alt="image"
+                                style="width: 850px; height: 250px">
+                            <div class="events-card-text">
+                                <ul>
+                                    <li>{{ $news['category'] }}</li>
+                                    <li>{{ $news['created_at'] }}</li>
+                                </ul>
+                                <h4><a href="event-details.html">{{ $news['title'] }}</a></h4>
+                                <p>{{ $news['writer'] }}</p>
+                                <a class="read-more-btn" href="event-details.html">Read More</a>
+                            </div>
                         </div>
-                    </div>
                     @endforeach
                 </div>
             </div>

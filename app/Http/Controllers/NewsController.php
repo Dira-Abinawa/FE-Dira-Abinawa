@@ -132,23 +132,23 @@ class NewsController extends AppBaseController
       *
       * @return Response
       */
-     public function update($id, UpdateNewsRequest $request)
-     {
-         $response = Http::get("http://127.0.0.1:3000/news/{$id}");
-         if ($response->successful()) {
-             $news = $response->json();
-             $updatedData = array_merge($news, $request->all());
-             $updateResponse = Http::put("http://127.0.0.1:3000/news/{$id}", $updatedData);
-             if ($updateResponse->successful()) {
-                 Flash::success('news updated successfully.');
-             } else {
-                 Flash::error('Failed to update school data in the API.');
-             }
-         } else {
-             Flash::error('Failed to fetch school data from the API.');
-         }
-         return redirect(route('news.index'));
-     }
+      public function update($id, UpdateNewsRequest $request)
+      {
+          try {
+              // Menggunakan HTTP PUT untuk pembaruan
+              $updateResponse = Http::put("http://127.0.0.1:3000/news/{$id}", $request->all());
+
+              if ($updateResponse->successful()) {
+                  Flash::success('News updated successfully.');
+              } else {
+                  Flash::error('Failed to update news data in the API. HTTP Error: '.$updateResponse->status());
+              }
+          } catch (\Exception $e) {
+              Flash::error('An error occurred: '.$e->getMessage());
+          }
+
+          return redirect(route('news.index'));
+      }
 
      /**
       * Remove the specified news from storage.
