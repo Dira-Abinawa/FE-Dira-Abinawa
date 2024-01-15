@@ -94,6 +94,7 @@ Route::prefix('admin')->middleware('isAuth')->group(function () {
     Route::resource('news', App\Http\Controllers\NewsController::class);
     Route::resource('dkrantings', App\Http\Controllers\DkrantingController::class);
     Route::resource('users', App\Http\Controllers\UsersController::class);
+    Route::resource('dapot', App\Http\Controllers\DataPotensiController::class);
     Route::get('detail-users/{id}',[UsersController::class, 'detailUsers'])->name('detailUsers');
     Route::get('dashboard',[UserController::class, 'dashboardAdmin'])->name('dashboard');
 });

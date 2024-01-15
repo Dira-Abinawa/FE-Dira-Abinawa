@@ -24,7 +24,7 @@
 @endif
 
 <li class="nav-item {{ Request::is('schools*') ? 'active' : '' }}">
-    <a class="nav-link" href="{{ route('schools.index') }}">
+    <a class="nav-link" href="{{ route('dapot.index') }}">
         <i class="nav-icon icon-organization"></i>
         <span>Data Potensi</span>
     </a>
@@ -55,4 +55,3 @@
         </a>
     </li>
 @endif
-

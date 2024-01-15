@@ -5,7 +5,7 @@
         <!-- <span class="banner-comment"><a href="contact.html"><i class="far fa-comment-dots"></i> CONTACT US</a></span> -->
         <div class="banner-social-icons">
             <ul>
-                <li><a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="https://www.instagram.com/dkr_padalarang/" target="_blank"><i class="fab fa-instagram"></i></a></li>
             </ul>
         </div>
         <div class="container-fluid">
@@ -30,7 +30,7 @@
     <section class="services pt-100 pb-70">
         <div class="container">
             <div class="default-section-title default-section-title-middle">
-                <h3>Data Statistik Potensi</h3>
+                <h3>Data Potensi</h3>
                 <p>Jumlah Seluruh sekolah aktif yang telah terdaftar di Kwartir Ranting Padalarang.</p>
             </div>
             <div class="section-content">
